@@ -2,9 +2,12 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\ProduitRepository")
  */
 class Produit
@@ -13,16 +16,19 @@ class Produit
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"categorie"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"categorie"})
      */
     private $libelle;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"categorie"})
      */
     private $prix;
 

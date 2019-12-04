@@ -3,11 +3,21 @@
 {% block title %}Edit Produit{% endblock %}
 
 {% block body %}
-    <h1>Edit Produit</h1>
+<div class="offset-3 col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h1>Edit Produit</h1>
+        </div>
+        <div class="card-body">
+            {{ include('produit/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    {{ include('produit/_form.html.twig', {'button_label': 'Update'}) }}
+            <a class="btn btn-dark" href="{{ path('produit_index') }}">Retour</a>
 
-    <a href="{{ path('produit_index') }}">back to list</a>
+            {{ include('produit/_delete_form.html.twig') }}
+        </div>
+    </div>
 
-    {{ include('produit/_delete_form.html.twig') }}
+
+
+</div>
 {% endblock %}

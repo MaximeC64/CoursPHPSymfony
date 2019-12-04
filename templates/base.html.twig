@@ -3,10 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-reboot.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/produit">Produits <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+            {#<div class="form-inline">
+                <div class="col-sm-5">
+                    <a class="btn btn-outline-primary" href="/login">Connexion</a>
+                </div>
+                <div class="offset-1 col-md-5">
+                    <a class="btn btn-outline-primary" href="/register">S'enregistrer</a>
+                </div>
+            </div>#}
+        </nav>
         {% block body %}{% endblock %}
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/popper.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

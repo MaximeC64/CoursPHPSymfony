@@ -25,13 +25,31 @@
                 </ul>
             </div>
             <div class="form-inline">
-                <div class="col-sm-5">
-                    <a class="btn btn-outline-primary" href="/login">Connexion</a>
-                </div>
-                <div class="offset-1 col-md-5">
-                    <a class="btn btn-outline-primary" href="/register">S'enregistrer</a>
-                </div>
+                {% if app.user %}
+                    <div class="dropdown">
+                        <a class="dropdown-toggle text-white text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ app.user.username }}
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <a class="dropdown-item" href="#">Mon profil</a>
+                            <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="{{ path('app_login') }}" class="btn btn-outline-primary nav-link">
+                        Connexion
+                    </a>
+                    <span>/</span>
+                    <a href="{{ path('app_register') }}" class="btn btn-outline-primary nav-link">
+                        S'enregistrer
+                    </a>
+                {% endif %}
             </div>
+
+
+
         </nav>
         {% block body %}{% endblock %}
         <script src="{{ asset('js/jquery.min.js') }}"></script>

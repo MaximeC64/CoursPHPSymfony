@@ -21,14 +21,21 @@
                     </li>
                 </ul>
             </div>
-            {#<div class="form-inline">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/categorie">Catégories <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="form-inline">
                 <div class="col-sm-5">
                     <a class="btn btn-outline-primary" href="/login">Connexion</a>
                 </div>
                 <div class="offset-1 col-md-5">
                     <a class="btn btn-outline-primary" href="/register">S'enregistrer</a>
                 </div>
-            </div>#}
+            </div>
         </nav>
         {% block body %}{% endblock %}
         <script src="{{ asset('js/jquery.min.js') }}"></script>
